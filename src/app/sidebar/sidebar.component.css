@@ -1,0 +1,21 @@
+button {
+    box-sizing: border-box;
+    background-color: transparent;
+    color: hsla(0, 0%, 100%, .75);
+    font-size: large;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    margin: 10px 5px;
+    width: auto;
+    font-weight: 1000;
+}
+
+button:hover {
+    border-bottom: solid 1px hsla(0, 0%, 100%, .75);
+}
+
+.serisTitle P {
+    margin: 10px 5px;
+    border-bottom: hsla(0, 0%, 100%, .75) solid 1px;
+}

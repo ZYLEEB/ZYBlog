@@ -1,0 +1,48 @@
+<div fxLayout="column" fxLayoutAlign="center strech">
+
+
+    <form [formGroup]="addArticle" fxLayout="row wrap" fxLayoutAlign="center center" (ngSubmit)="saveArticle()">
+
+        <mat-form-field appearance="legacy">
+            <mat-label>端別</mat-label>
+            <input matInput formControlName="end">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>系列</mat-label>
+            <input matInput formControlName="series" [value]="this.addArticle.value.series">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>集數</mat-label>
+            <input matInput formControlName="episode" [value]="this.addArticle.value.episode">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>標題</mat-label>
+            <input matInput formControlName="title" [value]="this.addArticle.value.title">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>副標題</mat-label>
+            <input matInput formControlName="subtitle" [value]="this.addArticle.value.subtitle">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>標籤</mat-label>
+            <input matInput formControlName="tags" [value]="this.addArticle.value.tags">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="textArea">
+            <mat-label>內容</mat-label>
+            <textarea class="textArea" matInput formControlName="content" [value]="this.addArticle.value.content"></textarea>
+        </mat-form-field>
+
+
+        <button type="submit">送出</button>
+
+
+    </form>
+    <button type="button" (click)="deleteArticle()">確定刪除</button>
+</div>

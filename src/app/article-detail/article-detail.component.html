@@ -1,0 +1,30 @@
+<div class="container" fxLayout="row">
+    <div class="container_article">
+        <div class="backButton" fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                <button (click)="goBack()"><mat-icon>arrow_back</mat-icon>回到文章瀑布</button>
+            </div>
+            <div *ngIf="this.authService.isLogin =='true'">
+                <button (click)="edit(article?.id)" *ngIf="this.authService.isLogin"><mat-icon>edit</mat-icon>編輯文章</button>
+            </div>
+            <div>
+                <button class="seriesAndEpisode">
+                {{article?.series}}<mat-icon>chevron_right</mat-icon>{{article?.episode}}
+            </button>
+            </div>
+        </div>
+        <div class="article" fxLayout="column" fxLayoutAlign="center center">
+            <h1>{{article?.title}}</h1>
+            <h3>{{article?.subtitle}}</h3>
+            <div class="updateTime" fxLayout="row" fxLayoutAlign="center center">
+                <span>
+          <mat-icon>update</mat-icon>
+          發表於 {{ article?.updatetimevar.substring(0, 4) }}-{{article?.updatetimevar?.substring(5, 7)}}-{{ article?.updatetimevar?.substring(8, 10) }}
+        </span></div>
+            <div class="content" [innerHTML]="content"></div>
+        </div>
+        <div *ngIf="this.authService.isLogin == 'true'">
+            <button (click)="deleteArticle(article?.id)" *ngIf="this.authService.isLogin"><mat-icon>delete</mat-icon>刪除文章</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="articleCard" *ngFor="let article of articleList" routerLink="/{{article.title}}" fxLayout="column nowrap" fxLayoutAlign="center center">
+    <div class="cardSeries" fxLayout="row" fxLayoutAlign="start center">
+        <span>{{article.series}}</span>
+        <span>></span>
+        <span>{{article.episode}}</span>
+    </div>
+    <div class="artilceTitle" fxLayout="column wrap" fxLayoutAlign="center center">
+        <div>
+            <h1>{{article.title}}</h1>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="start center">
+            <h3>{{article.subtitle}}</h3>
+        </div>
+    </div>
+    <div class="updatetime" fxLayoutAlign="start">
+        <span>
+          <mat-icon>update</mat-icon>
+          發表於
+          {{ article.updatetimevar.substring(0, 4) }}-{{
+            article.updatetimevar.substring(5, 7)
+          }}-{{ article.updatetimevar.substring(8, 10) }}
+        </span>
+
+    </div>
+</div>

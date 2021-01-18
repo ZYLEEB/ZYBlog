@@ -1,0 +1,75 @@
+    .container {
+        box-sizing: border-box;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 0px;
+        height: 8vh;
+        background-color: #212121;
+        z-index: 15;
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.5)
+    }
+    
+    button,
+    .homeButton {
+        box-sizing: border-box;
+        background-color: transparent;
+        color: hsla(0, 0%, 100%, .75);
+        font-size: large;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        margin: 0;
+        width: auto;
+        font-weight: 1000;
+    }
+    
+    @media screen and (max-width: 280px) {
+        button,
+        .homeButton {
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #fffffe;
+            font-size: medium;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            margin: 0;
+            width: auto;
+            font-weight: 1000;
+        }
+    }
+    
+    @media screen and (max-height: 280px) {
+        .container {
+            height: 9vh;
+        }
+    }
+    /* mobile sidenav*/
+    
+    mat-sidenav-content,
+    mat-sidenav-container {
+        box-sizing: border-box;
+        height: auto !important;
+        background-color: #212121;
+        width: 100%;
+    }
+    
+    mat-sidenav {
+        box-sizing: border-box;
+        position: fixed;
+        display: absolute;
+        top: 0px;
+        right: 0px;
+        padding-top: 8vh;
+        height: 100%;
+    }
+    
+    mat-expansion-panel button {
+        color: #212121;
+    }
+    
+    .sidenavItem {
+        margin: 10px 0px;
+    }

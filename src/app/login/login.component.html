@@ -1,0 +1,21 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+    <form [formGroup]="user" fxLayout="column" fxLayoutAlign="center strech" (ngSubmit)="login()">
+
+        <mat-form-field appearance="legacy">
+            <mat-label>帳號</mat-label>
+            <input matInput formControlName="user" minlength="3">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-error>請輸入三個字以上</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>密碼</mat-label>
+            <input type="password" matInput formControlName="password" minlength="5">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-error>請輸入五個字以上</mat-error>
+        </mat-form-field>
+        <button type="submit">登入</button>
+
+    </form>
+    <div *ngIf="this.wrongInfo">帳號或密碼錯誤，請重新輸入</div>
+
+</div>

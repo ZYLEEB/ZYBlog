@@ -1,0 +1,9 @@
+<div class="serisTitle">
+    <p>{{series}}</p>
+</div>
+<div>
+    <button (click)="showArticles('all')" [matBadge]="this.articleService.count('all')" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">全部文章</button>
+</div>
+<div *ngFor="let series of seriesList">
+    <button (click)="showArticles(series)" [matBadge]="this.articleService.count(series)" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">{{series}}</button>
+</div>

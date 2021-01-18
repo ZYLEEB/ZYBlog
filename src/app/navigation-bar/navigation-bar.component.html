@@ -1,0 +1,79 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between strech">
+    <div fxLayoutAlign="center center">
+        <button class="homeButton" routerLink="./home">ZY</button>
+    </div>
+    <div class="container_navButton" fxLayoutAlign="center">
+        <div class="navButton" fxLayoutAlign="center" fxHide.xs>
+            <button routerLink="./frontend" (click)="this.articleService.getArtilceList('frontend')">
+        <mat-icon>insert_chart</mat-icon>前端
+      </button>
+
+        </div>
+        <div class="navButton" fxLayoutAlign="center" fxHide.xs>
+            <button routerLink="./backend" (click)="this.articleService.getArtilceList('backend')">
+        <mat-icon>calculate</mat-icon>後端
+      </button>
+        </div>
+        <div class="navButton" fxLayoutAlign="center" fxHide.xs *ngIf="this.authService.isLogin=='true'">
+            <button routerLink="./edit">
+        <mat-icon>edit</mat-icon>新增
+      </button>
+        </div>
+        <div class="navButton" fxLayoutAlign="center" fxHide.xs *ngIf="this.authService.isLogin=='false'">
+            <button routerLink="./login">
+        <mat-icon>login</mat-icon>登入
+      </button>
+        </div>
+        <div class="menuButton" fxLayoutAlign="center" fxHide fxShow.xs>
+            <button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+        </div>
+    </div>
+</div>
+
+<!-- mobile sidenav-->
+<mat-sidenav-container>
+    <mat-sidenav #sidenav position="end" mode="over" hasBackdrop="true" fxLayout="column" fxHide fxShow.xs>
+        <mat-accordion>
+            <mat-expansion-panel fxLayout="column" fxLayoutGap="10px">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        前端故事集
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="sidenavItem" *ngFor="let series of this.articleService.frontendSeriesList">
+                    <button (click)="navgiate('frontend');this.articleService.getArtilceList(series);sidenav.toggle()" [matBadge]="this.articleService.count(series)" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">{{series}} </button>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel fxLayout="column" fxLayoutGap="10px">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        後端故事集
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="sidenavItem" *ngFor="let series of this.articleService.backendSeriesList">
+                    <button (click)="navgiate('backend');this.articleService.getArtilceList(series);sidenav.toggle()" [matBadge]="this.articleService.count(series)" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">{{series}}</button>
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel fxLayout="column" fxLayoutGap="10px">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        後台
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="sidenavItem" *ngIf="this.authService.isLogin=='true'">
+                    <button routerLink="./edit">新增</button>
+                </div>
+                <div class="sidenavItem" *ngIf="this.authService.isLogin=='false'">
+                    <button routerLink="./login" (click)="sidenav.toggle()">登入</button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
